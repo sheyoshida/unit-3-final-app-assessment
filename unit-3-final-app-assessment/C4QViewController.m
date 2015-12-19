@@ -11,7 +11,7 @@
 
 @interface C4QViewController () <ColorPassingDelegate>
 
-@property (strong, nonatomic) IBOutlet UIView *backgroundView;
+@property (weak, nonatomic) IBOutlet UIButton *onwardButton;
 
 @end
 
@@ -19,25 +19,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-  
-    
-
-    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
+    if ([segue.identifier isEqual:@"ColorPickerID"]) { // set id condition for delegate...
     C4QColorPickerViewController *svc = segue.destinationViewController;
-    svc.delegate = self; // set that delegate!
-    
+    svc.delegate = self;
+    }
 }
 
-- (void)userPickedColor:(UIColor *)color {
+- (void)userPickedColor:(UIColor *)color { // delegate method called
     self.view.backgroundColor = color;
-    
-    
 }
-
-
 
 @end
