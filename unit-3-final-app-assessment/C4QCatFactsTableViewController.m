@@ -7,10 +7,13 @@
 //
 
 #import "C4QCatFactsTableViewController.h"
+#import <AFNetworking/AFNetworking.h>
 
 #define CAT_API_URL @"http://catfacts-api.appspot.com/api/facts?number=100"
 
 @interface C4QCatFactsTableViewController ()
+
+@property (nonatomic) NSMutableArray *searchResults;
 
 @end
 
@@ -19,29 +22,58 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-}
+    
+    // make an api request
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
+    
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    [manager GET:CAT_API_URL parameters:nil
+        progress:nil
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+             
+             // sterialization of the dictionary data so that it isn't a bunch of numbers:
+             NSDictionary *catFacts;
+             NSError *error = nil;
+             if (responseObject != nil) {
+                 catFacts = [NSJSONSerialization JSONObjectWithData:responseObject
+                                                                options:NSJSONReadingMutableContainers
+                                                                  error:&error];
+                 
+                 self.searchResults = [[NSMutableArray alloc] init]; // create array to store results
+              
+                 for (NSArray *fact in catFacts[@"facts"]) { // loop through dictionary and save as array
+                     [self.searchResults addObject:fact];
+                 }
+             }
+             [self.tableView reloadData]; // reload tableView with API data
 
+         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+             NSLog(@"YOUR ERROR: %@", error.userInfo);
+         }];
+}
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return self.searchResults.count;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CatFactIdentifier" forIndexPath:indexPath];
     
+    cell.textLabel.text = self.searchResults[indexPath.row];
+    
     return cell;
 }
-*/
+
 
 
 @end
