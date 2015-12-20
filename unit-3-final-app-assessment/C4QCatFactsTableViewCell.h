@@ -11,5 +11,7 @@
 @interface C4QCatFactsTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet UIButton *button;
+@property (nonatomic) NSMutableArray *selectedCatFact;
+@property (nonatomic) NSString *fact;
 
 @end

@@ -22,6 +22,9 @@
                             <constraint firstAttribute="height" constant="50" id="5mM-OS-Kzw"/>
                         </constraints>
                         <state key="normal" title="x" image="cat-poo"/>
+                        <connections>
+                            <action selector="buttonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="OHJ-ey-Rtn"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hed-S1-z1o">
                         <rect key="frame" x="18" y="13" width="234" height="136.5"/>

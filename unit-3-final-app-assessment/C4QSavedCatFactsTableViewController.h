@@ -1,5 +1,5 @@
 //
-//  C4QCatFactsSavedTableViewController.h
+//  C4QSavedCatFactsTableViewController.h
 //  unit-3-final-app-assessment
 //
 //  Created by Shena Yoshida on 12/20/15.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface C4QCatFactsSavedTableViewController : UITableView
+@interface C4QSavedCatFactsTableViewController : UITableViewController
+
+@property (nonatomic) NSString *catFact;
 
 @end

@@ -10,7 +10,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import "C4QCatFactsTableViewCell.h"
 #import "C4QCatFactsDetailViewController.h"
-#import "C4QCatFactsSavedTableViewController.h"
+#import "C4QSavedCatFactsTableViewController.h"
 
 #define CAT_API_URL @"http://catfacts-api.appspot.com/api/facts?number=100"
 
@@ -37,7 +37,12 @@
     self.tableView.estimatedRowHeight = 50;
     
     [self makeCatFactsAPICall];
+    
 }
+
+- (IBAction)savedButtonTapped:(id)sender {
+}
+
 
 - (void)makeCatFactsAPICall {
  

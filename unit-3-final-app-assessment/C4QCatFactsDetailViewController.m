@@ -24,15 +24,12 @@
     [super viewDidLoad];
 
     NSString *myFact = self.catFact.uppercaseString;
-    NSString *excitedFact = [myFact stringByReplacingOccurrencesOfString:@"." withString:@"!"];
+    NSString *excitedFact = [myFact stringByReplacingOccurrencesOfString:@"." withString:@"!!"];
     self.factLabel.text = excitedFact;
     
-    [self makeGiphyAPICall];
-    
     self.imageView.clipsToBounds = YES;
-
-   
     
+    [self makeGiphyAPICall];
 }
 
 - (void)didReceiveMemoryWarning {

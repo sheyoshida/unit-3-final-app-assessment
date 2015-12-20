@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4D01807F1C2612C100A7DC57 /* C4QCatFactsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D01807D1C2612C100A7DC57 /* C4QCatFactsTableViewCell.m */; };
 		4D0180801C2612C100A7DC57 /* C4QCatFactsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D01807E1C2612C100A7DC57 /* C4QCatFactsTableViewCell.xib */; };
-		4D32C9841C26FDE900DD08C3 /* C4QCatFactsSavedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D32C9831C26FDE900DD08C3 /* C4QCatFactsSavedTableViewController.m */; };
+		4D32C9871C27327A00DD08C3 /* C4QSavedCatFactsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D32C9861C27327A00DD08C3 /* C4QSavedCatFactsTableViewController.m */; };
 		8D610EA01C2477EB00AADDC2 /* C4QCatFactsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D610E951C2477EB00AADDC2 /* C4QCatFactsTableViewController.m */; };
 		8D610EA11C2477EB00AADDC2 /* C4QColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D610E971C2477EB00AADDC2 /* C4QColorPickerViewController.m */; };
 		8D610EA21C2477EB00AADDC2 /* C4QRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D610E991C2477EB00AADDC2 /* C4QRootViewController.m */; };
@@ -29,8 +29,8 @@
 		4D01807C1C2612C100A7DC57 /* C4QCatFactsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C4QCatFactsTableViewCell.h; sourceTree = "<group>"; };
 		4D01807D1C2612C100A7DC57 /* C4QCatFactsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C4QCatFactsTableViewCell.m; sourceTree = "<group>"; };
 		4D01807E1C2612C100A7DC57 /* C4QCatFactsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = C4QCatFactsTableViewCell.xib; sourceTree = "<group>"; };
-		4D32C9821C26FDE900DD08C3 /* C4QCatFactsSavedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C4QCatFactsSavedTableViewController.h; sourceTree = "<group>"; };
-		4D32C9831C26FDE900DD08C3 /* C4QCatFactsSavedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C4QCatFactsSavedTableViewController.m; sourceTree = "<group>"; };
+		4D32C9851C27327A00DD08C3 /* C4QSavedCatFactsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C4QSavedCatFactsTableViewController.h; sourceTree = "<group>"; };
+		4D32C9861C27327A00DD08C3 /* C4QSavedCatFactsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C4QSavedCatFactsTableViewController.m; sourceTree = "<group>"; };
 		8D610E941C2477EB00AADDC2 /* C4QCatFactsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C4QCatFactsTableViewController.h; sourceTree = "<group>"; };
 		8D610E951C2477EB00AADDC2 /* C4QCatFactsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C4QCatFactsTableViewController.m; sourceTree = "<group>"; };
 		8D610E961C2477EB00AADDC2 /* C4QColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C4QColorPickerViewController.h; sourceTree = "<group>"; };
@@ -115,8 +115,8 @@
 				4D01807E1C2612C100A7DC57 /* C4QCatFactsTableViewCell.xib */,
 				8DA03F721C2499F400328B53 /* C4QCatFactsDetailViewController.h */,
 				8DA03F731C2499F400328B53 /* C4QCatFactsDetailViewController.m */,
-				4D32C9821C26FDE900DD08C3 /* C4QCatFactsSavedTableViewController.h */,
-				4D32C9831C26FDE900DD08C3 /* C4QCatFactsSavedTableViewController.m */,
+				4D32C9851C27327A00DD08C3 /* C4QSavedCatFactsTableViewController.h */,
+				4D32C9861C27327A00DD08C3 /* C4QSavedCatFactsTableViewController.m */,
 				8D87530C1C24774700BBD328 /* Main.storyboard */,
 				8D87530F1C24774800BBD328 /* Assets.xcassets */,
 				8D8753031C24774700BBD328 /* Supporting Files */,
@@ -258,8 +258,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D32C9841C26FDE900DD08C3 /* C4QCatFactsSavedTableViewController.m in Sources */,
 				8D8753081C24774700BBD328 /* AppDelegate.m in Sources */,
+				4D32C9871C27327A00DD08C3 /* C4QSavedCatFactsTableViewController.m in Sources */,
 				4D01807F1C2612C100A7DC57 /* C4QCatFactsTableViewCell.m in Sources */,
 				8D610EA01C2477EB00AADDC2 /* C4QCatFactsTableViewController.m in Sources */,
 				8D8753051C24774700BBD328 /* main.m in Sources */,

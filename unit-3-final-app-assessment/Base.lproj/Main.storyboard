@@ -181,7 +181,14 @@
                             <outlet property="delegate" destination="Q41-6z-oZL" id="DhZ-Vp-7N4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Cat Facts" id="Wcl-Wy-q65"/>
+                    <navigationItem key="navigationItem" title="Cat Facts" id="Wcl-Wy-q65">
+                        <barButtonItem key="rightBarButtonItem" title="Saved" id="2kr-tN-RO5">
+                            <connections>
+                                <action selector="savedButtonTapped:" destination="Q41-6z-oZL" id="lbb-ue-sCC"/>
+                                <segue destination="grj-ym-Ade" kind="show" id="pyh-mm-vWC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yux-EA-lvX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -205,7 +212,7 @@
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bH5-TH-STY">
-                                <rect key="frame" x="70" y="114" width="460" height="436"/>
+                                <rect key="frame" x="60" y="114" width="480" height="436"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -216,13 +223,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="bH5-TH-STY" firstAttribute="top" secondItem="s6Q-Uy-pBi" secondAttribute="bottom" constant="50" id="46K-mi-ig1"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="bH5-TH-STY" secondAttribute="trailing" constant="50" id="8f6-cI-CfI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bH5-TH-STY" secondAttribute="trailing" constant="40" id="8f6-cI-CfI"/>
                             <constraint firstItem="fHc-GF-bAJ" firstAttribute="leading" secondItem="Rgv-4m-sUr" secondAttribute="leadingMargin" constant="-20" id="9L2-uu-nEl"/>
                             <constraint firstItem="fHc-GF-bAJ" firstAttribute="top" secondItem="s6Q-Uy-pBi" secondAttribute="bottom" id="H7i-J8-DFb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fHc-GF-bAJ" secondAttribute="trailing" constant="-20" id="TBQ-Gn-Q8F"/>
                             <constraint firstItem="ZaY-uZ-OgW" firstAttribute="top" secondItem="bH5-TH-STY" secondAttribute="bottom" constant="50" id="fWh-dT-EeE"/>
                             <constraint firstItem="ZaY-uZ-OgW" firstAttribute="top" secondItem="fHc-GF-bAJ" secondAttribute="bottom" id="uQ3-Xz-LwU"/>
-                            <constraint firstItem="bH5-TH-STY" firstAttribute="leading" secondItem="Rgv-4m-sUr" secondAttribute="leadingMargin" constant="50" id="vAz-cd-QcY"/>
+                            <constraint firstItem="bH5-TH-STY" firstAttribute="leading" secondItem="Rgv-4m-sUr" secondAttribute="leadingMargin" constant="40" id="vAz-cd-QcY"/>
                         </constraints>
                     </view>
                     <connections>
@@ -234,20 +241,20 @@
             </objects>
             <point key="canvasLocation" x="2068" y="677"/>
         </scene>
-        <!--Cat Facts Table View Controller-->
-        <scene sceneID="AbT-LV-qlJ">
+        <!--Saved Cat Facts Table View Controller-->
+        <scene sceneID="vL3-fU-Zvv">
             <objects>
-                <tableViewController id="6Tv-o9-xgp" customClass="C4QCatFactsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="U3G-f3-uWI">
+                <tableViewController id="grj-ym-Ade" customClass="C4QSavedCatFactsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="JL9-Br-98q" customClass="C4QCatFactsSavedTableViewController">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="mgU-oe-6um">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="z8j-gv-C1j">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mgU-oe-6um" id="V1q-LI-vBv">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z8j-gv-C1j" id="xT8-Nu-23l">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
@@ -256,14 +263,14 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="6Tv-o9-xgp" id="Gtx-F1-HFd"/>
-                            <outlet property="delegate" destination="6Tv-o9-xgp" id="BSi-lm-aKJ"/>
+                            <outlet property="dataSource" destination="grj-ym-Ade" id="YpW-Oi-JbR"/>
+                            <outlet property="delegate" destination="grj-ym-Ade" id="7W4-dx-bcp"/>
                         </connections>
                     </tableView>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pki-e2-4Bx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uzy-Sk-vd0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2068" y="1351"/>
+            <point key="canvasLocation" x="2072" y="1448"/>
         </scene>
     </scenes>
 </document>
