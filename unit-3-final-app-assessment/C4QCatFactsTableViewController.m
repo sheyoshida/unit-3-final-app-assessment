@@ -9,6 +9,8 @@
 #import "C4QCatFactsTableViewController.h"
 #import <AFNetworking/AFNetworking.h>
 #import "C4QCatFactsTableViewCell.h"
+#import "C4QCatFactsDetailViewController.h"
+#import "C4QCatFactsSavedTableViewController.h"
 
 #define CAT_API_URL @"http://catfacts-api.appspot.com/api/facts?number=100"
 
@@ -33,11 +35,15 @@
     // set height of cell to adjust to text
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 50;
-   
-    // make an api request
+    
+    [self makeCatFactsAPICall];
+}
+
+- (void)makeCatFactsAPICall {
+ 
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
     
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer]; 
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     
     [manager GET:CAT_API_URL parameters:nil
         progress:nil
@@ -48,17 +54,17 @@
              NSError *error = nil;
              if (responseObject != nil) {
                  catFacts = [NSJSONSerialization JSONObjectWithData:responseObject
-                                                                options:NSJSONReadingMutableContainers
-                                                                  error:&error];
+                                                            options:NSJSONReadingMutableContainers
+                                                              error:&error];
                  
                  self.searchResults = [[NSMutableArray alloc] init]; // create array to store results
-              
+                 
                  for (NSArray *fact in catFacts[@"facts"]) { // loop through dictionary and save as array
                      [self.searchResults addObject:fact];
                  }
              }
              [self.tableView reloadData]; // reload tableView with API data
-
+             
          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
              NSLog(@"YOUR ERROR: %@", error.userInfo);
          }];
@@ -78,17 +84,23 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CatFactIdentifier" forIndexPath:indexPath];
-    
     C4QCatFactsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier" forIndexPath:indexPath];
     
-//    cell.textLabel.text = self.searchResults[indexPath.row];
-
     cell.label.text = self.searchResults[indexPath.row];
     
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    //    [self performSegueWithIdentifier:@"DetailSegue" sender:nil];
+    NSString *catFactToPass = self.searchResults[indexPath.row];
+    C4QCatFactsDetailViewController *dvc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
+    dvc.catFact = catFactToPass;
+    
+    [self.navigationController pushViewController:dvc animated:YES];
+
+}
 
 
 

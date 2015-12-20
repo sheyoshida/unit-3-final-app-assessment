@@ -171,6 +171,9 @@
                                 </tableViewCellContentView>
                                 <animations/>
                                 <accessibility key="accessibilityConfiguration" identifier="CatFactIdentifier"/>
+                                <connections>
+                                    <segue destination="ZGb-Xn-oUs" kind="show" identifier="DetailSegue" id="KwA-du-jK2"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -183,6 +186,82 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yux-EA-lvX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1356" y="677"/>
+        </scene>
+        <!--Cat Facts Detail View Controller-->
+        <scene sceneID="Pby-hL-HfR">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" id="ZGb-Xn-oUs" customClass="C4QCatFactsDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="s6Q-Uy-pBi"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZaY-uZ-OgW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rgv-4m-sUr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fHc-GF-bAJ">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <animations/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bH5-TH-STY">
+                                <rect key="frame" x="70" y="114" width="460" height="436"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bH5-TH-STY" firstAttribute="top" secondItem="s6Q-Uy-pBi" secondAttribute="bottom" constant="50" id="46K-mi-ig1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bH5-TH-STY" secondAttribute="trailing" constant="50" id="8f6-cI-CfI"/>
+                            <constraint firstItem="fHc-GF-bAJ" firstAttribute="leading" secondItem="Rgv-4m-sUr" secondAttribute="leadingMargin" constant="-20" id="9L2-uu-nEl"/>
+                            <constraint firstItem="fHc-GF-bAJ" firstAttribute="top" secondItem="s6Q-Uy-pBi" secondAttribute="bottom" id="H7i-J8-DFb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fHc-GF-bAJ" secondAttribute="trailing" constant="-20" id="TBQ-Gn-Q8F"/>
+                            <constraint firstItem="ZaY-uZ-OgW" firstAttribute="top" secondItem="bH5-TH-STY" secondAttribute="bottom" constant="50" id="fWh-dT-EeE"/>
+                            <constraint firstItem="ZaY-uZ-OgW" firstAttribute="top" secondItem="fHc-GF-bAJ" secondAttribute="bottom" id="uQ3-Xz-LwU"/>
+                            <constraint firstItem="bH5-TH-STY" firstAttribute="leading" secondItem="Rgv-4m-sUr" secondAttribute="leadingMargin" constant="50" id="vAz-cd-QcY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="factLabel" destination="bH5-TH-STY" id="67m-C5-PzX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2zp-8R-90T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2068" y="677"/>
+        </scene>
+        <!--Cat Facts Table View Controller-->
+        <scene sceneID="AbT-LV-qlJ">
+            <objects>
+                <tableViewController id="6Tv-o9-xgp" customClass="C4QCatFactsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="U3G-f3-uWI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="mgU-oe-6um">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mgU-oe-6um" id="V1q-LI-vBv">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="6Tv-o9-xgp" id="Gtx-F1-HFd"/>
+                            <outlet property="delegate" destination="6Tv-o9-xgp" id="BSi-lm-aKJ"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pki-e2-4Bx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2068" y="1351"/>
         </scene>
     </scenes>
 </document>
