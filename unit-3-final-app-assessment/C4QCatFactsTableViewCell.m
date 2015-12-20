@@ -14,29 +14,33 @@
 - (void)awakeFromNib {
     // Initialization code
     
- self.selectedCatFact = [[NSUserDefaults standardUserDefaults] objectForKey:@"savedFacts"];
 
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+
 }
 
 - (IBAction)buttonTapped:(id)sender {
     
    NSString *tappedFact = self.label.text;
-    
-    if (self.selectedCatFact.count == 0) {
-        self.selectedCatFact = [[NSMutableArray alloc] initWithObjects: tappedFact, nil];
-        [[NSUserDefaults standardUserDefaults] setObject:self.selectedCatFact forKey:catKey];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:catKey] == nil) {
+        self.selectedCatFact = [[NSMutableArray alloc] init];
+        [self.selectedCatFact addObject:tappedFact];
+        [defaults setObject:self.selectedCatFact forKey:catKey];
+        [defaults synchronize];
         
     } else {
         // if the string is not in the array, add it
-        [self.selectedCatFact addObject:tappedFact];
-        [[NSUserDefaults standardUserDefaults] setObject:self.selectedCatFact forKey:catKey];
+        NSMutableArray *arr = [[defaults objectForKey:catKey] mutableCopy];
+        [arr insertObject:tappedFact atIndex:0];
+        [defaults setObject:arr forKey:catKey];
+        [defaults synchronize];
     }
     
-    NSLog(@"SAVING CAT FACT: %@", self.selectedCatFact);
+    NSLog(@"SAVING CAT FACTs: %@", self.selectedCatFact);
 }
 
 @end
