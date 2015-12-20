@@ -24,8 +24,9 @@
 
 - (IBAction)buttonTapped:(id)sender {
     
-   NSString *tappedFact = self.label.text;
+    NSString *tappedFact = self.label.text;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
     if ([defaults objectForKey:catKey] == nil) {
         self.selectedCatFact = [[NSMutableArray alloc] init];
         [self.selectedCatFact addObject:tappedFact];
@@ -33,14 +34,25 @@
         [defaults synchronize];
         
     } else {
-        // if the string is not in the array, add it
         NSMutableArray *arr = [[defaults objectForKey:catKey] mutableCopy];
-        [arr insertObject:tappedFact atIndex:0];
-        [defaults setObject:arr forKey:catKey];
-        [defaults synchronize];
+        // if the string is not in the array, add it
+            [arr insertObject:tappedFact atIndex:0];
+            [defaults setObject:arr forKey:catKey];
+            [defaults synchronize];
     }
     
-    NSLog(@"SAVING CAT FACTs: %@", self.selectedCatFact);
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"OH WOW!" message:@"You just saved a new cat fact!!!" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *button = [UIAlertAction actionWithTitle:@"GREAT!" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [alert dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    [alert addAction:button];
+    [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
+    
+    
+    
 }
+
 
 @end
