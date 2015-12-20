@@ -8,12 +8,15 @@
 
 #import "C4QCatFactsTableViewController.h"
 #import <AFNetworking/AFNetworking.h>
+#import "C4QCatFactsTableViewCell.h"
 
 #define CAT_API_URL @"http://catfacts-api.appspot.com/api/facts?number=100"
 
 @interface C4QCatFactsTableViewController ()
 
 @property (nonatomic) NSMutableArray *searchResults;
+@property (strong) C4QCatFactsTableViewCell *cellPrototype;
+
 
 @end
 
@@ -23,10 +26,18 @@
 {
     [super viewDidLoad];
     
+    // set up custom cell
+    UINib *nib = [UINib nibWithNibName:@"C4QCatFactsTableViewCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"cellIdentifier"];
+    
+    // set height of cell to adjust to text
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 50;
+   
     // make an api request
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
     
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer]; 
     
     [manager GET:CAT_API_URL parameters:nil
         progress:nil
@@ -67,12 +78,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CatFactIdentifier" forIndexPath:indexPath];
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CatFactIdentifier" forIndexPath:indexPath];
     
-    cell.textLabel.text = self.searchResults[indexPath.row];
+    C4QCatFactsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier" forIndexPath:indexPath];
+    
+//    cell.textLabel.text = self.searchResults[indexPath.row];
+
+    cell.label.text = self.searchResults[indexPath.row];
     
     return cell;
 }
+
+
+
 
 
 
