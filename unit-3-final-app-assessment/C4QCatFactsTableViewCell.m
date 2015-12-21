@@ -35,13 +35,14 @@
         
     } else {
         NSMutableArray *arr = [[defaults objectForKey:catKey] mutableCopy];
-        // if the string is not in the array, add it
-            [arr insertObject:tappedFact atIndex:0];
-            [defaults setObject:arr forKey:catKey];
-            [defaults synchronize];
+                [arr removeObjectIdenticalTo:tappedFact];
+                [arr insertObject:tappedFact atIndex:0];
+                [defaults setObject:arr forKey:catKey];
+                [defaults synchronize];
+        
     }
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"OH WOW!" message:@"You just saved a new cat fact!!!" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"OH WOW!" message:@"You just saved a cat fact!!!" preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *button = [UIAlertAction actionWithTitle:@"GREAT!" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [alert dismissViewControllerAnimated:YES completion:nil];
@@ -49,10 +50,10 @@
     
     [alert addAction:button];
     [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
-    
-    
-    
+
 }
+
+
 
 
 @end
