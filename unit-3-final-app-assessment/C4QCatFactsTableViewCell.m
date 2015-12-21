@@ -13,8 +13,6 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    
-
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -35,16 +33,20 @@
         
     } else {
         NSMutableArray *arr = [[defaults objectForKey:catKey] mutableCopy];
-                [arr removeObjectIdenticalTo:tappedFact];
+        [arr removeObjectIdenticalTo:tappedFact]; // prevent duplicates
                 [arr insertObject:tappedFact atIndex:0];
                 [defaults setObject:arr forKey:catKey];
                 [defaults synchronize];
         
     }
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"OH WOW!" message:@"You just saved a cat fact!!!" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"OH WOW!"
+                                                                   message:@"You just saved a cat fact!!!"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction *button = [UIAlertAction actionWithTitle:@"GREAT!" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *button = [UIAlertAction actionWithTitle:@"GREAT!"
+                                                     style:UIAlertActionStyleDefault
+                                                   handler:^(UIAlertAction * _Nonnull action) {
         [alert dismissViewControllerAnimated:YES completion:nil];
     }];
     

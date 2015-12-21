@@ -39,7 +39,6 @@
     return self.savedCatFacts.count;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reuseIdentifier" forIndexPath:indexPath];
     
@@ -47,5 +46,30 @@
     
     return cell;
 }
+
+// remove cells
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+
+        NSString *item = self.savedCatFacts[indexPath.row];
+        NSMutableArray *arrayCopy = [self.savedCatFacts mutableCopy];
+        [arrayCopy removeObjectIdenticalTo:item];
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:arrayCopy forKey:catKey];
+        [defaults synchronize];
+        
+    }
+    [self.tableView reloadData];
+}
+
+
+
+
 
 @end
