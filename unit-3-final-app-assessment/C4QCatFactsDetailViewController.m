@@ -56,7 +56,7 @@
          NSDictionary *object = [data objectAtIndex:(arc4random_uniform(data.count - 1) + 1)];
          NSString *imageURL = [[[object objectForKey:@"images"]objectForKey:@"original_still"]objectForKey:@"url"];
          
-         NSData * catData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: imageURL]];
+         NSData *catData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: imageURL]];
          self.imageView.image = [UIImage imageWithData:catData];
      }
      

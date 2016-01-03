@@ -17,8 +17,6 @@
 @interface C4QCatFactsTableViewController ()
 
 @property (nonatomic) NSMutableArray *searchResults;
-@property (strong) C4QCatFactsTableViewCell *cellPrototype;
-
 
 @end
 

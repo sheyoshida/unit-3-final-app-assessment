@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface C4QCatFactsTableViewCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet UIButton *button;
+
 @property (nonatomic) NSMutableArray *selectedCatFact;
-@property (nonatomic) NSArray *catArray; 
-@property (nonatomic) NSString *fact;
 
 @end
